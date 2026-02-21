@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@acme/layer-dependency": ["../04-layer-dependency/src"]
+    },
+  },
+  "include": ["src/**/*.mts"]
+}

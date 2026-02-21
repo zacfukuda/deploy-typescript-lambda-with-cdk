@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "prebuild": "npm install",
+    "build": "tsc",
+    "postbuild": "cp package.json build/ && cp -r node_modules build/"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2"
+  }
+}

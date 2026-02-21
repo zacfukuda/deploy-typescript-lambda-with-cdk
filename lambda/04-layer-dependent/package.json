@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "build": "esbuild \"src/**/*.mts\" --platform=node --outdir=build --out-extension:.js=.mjs --outbase=src"
+  }
+}
