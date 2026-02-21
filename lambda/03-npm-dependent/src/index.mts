@@ -1,5 +1,5 @@
 import chalk from 'chalk';
 
-export const handler = async (event: {}): Promise<void> => {
-  console.log(chalk.blue('Hello world!'));
+export const handler = async () => {
+  console.log(chalk.blue('hello, world'));
 }

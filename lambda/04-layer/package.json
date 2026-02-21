@@ -3,7 +3,7 @@
     "prebuild": "npm install",
     "build": "tsc",
     "postbuild": "npm-run-all postbuild:*",
-    "postbuild:package-json": "cp src/package.json build/nodejs/node_modules/@acme/layer-dependency/",
+    "postbuild:package-json": "cp src/package.json build/nodejs/node_modules/@acme/layer/",
     "postbuild:node-modules": "cp -r node_modules/. build/nodejs/node_modules/"
   },
   "dependencies": {

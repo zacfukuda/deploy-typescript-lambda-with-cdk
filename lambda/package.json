@@ -4,7 +4,7 @@
     "build:independent": "cd 01-independent && npm run build",
     "build:aws-dependent": "cd 02-aws-dependent && npm run build",
     "build:npm-dependent": "cd 03-npm-dependent && npm run build",
-    "build:layer-dependency": "cd 04-layer-dependency && npm run build",
-    "build:layer-dependent": "cd 04-layer-dependent && npm run build"
+    "build:layer": "cd 04-layer && npm run build",
+    "build:layer-dependent": "cd 05-layer-dependent && npm run build"
   }
 }

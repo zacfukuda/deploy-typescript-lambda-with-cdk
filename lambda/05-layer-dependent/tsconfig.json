@@ -1,8 +1,10 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./build/nodejs/node_modules/@acme/layer-dependency",
-    "rootDir": "./src"
+    "baseUrl": ".",
+    "paths": {
+      "@acme/layer": ["../04-layer/src"]
+    },
   },
   "include": ["src/**/*.mts"]
 }

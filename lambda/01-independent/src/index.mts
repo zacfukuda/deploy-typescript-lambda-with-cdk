@@ -1,3 +1,3 @@
-export const handler = async (event: {}): Promise<void> => {
-  console.log('Hello, world.');
+export const handler = async () => {
+  console.log('hello, world');
 }

@@ -18,7 +18,7 @@ export class DeployTypescriptLambdaWithCdkStack extends Stack {
     });
 
     // 02
-    new NodejsFunction(this, 'AwsDependentService', {
+    new NodejsFunction(this, 'AwsDependent', {
       functionName: 'aws-dependent',
       code: Code.fromAsset('./lambda/02-aws-dependent/build'),
       handler: 'index.handler',
@@ -27,7 +27,7 @@ export class DeployTypescriptLambdaWithCdkStack extends Stack {
     });
 
     // 03
-    new NodejsFunction(this, 'NpmDependentService', {
+    new NodejsFunction(this, 'NpmDependent', {
       functionName: 'npm-dependent',
       code: Code.fromAsset('./lambda/03-npm-dependent/build'),
       handler: 'index.handler',
@@ -36,18 +36,21 @@ export class DeployTypescriptLambdaWithCdkStack extends Stack {
     });
 
     // 04
-    new NodejsFunction(this, 'DependentService', {
+    const layer = new LayerVersion(this, 'Layer', {
+      layerVersionName: 'layer',
+      compatibleRuntimes: [Runtime.NODEJS_24_X],
+      compatibleArchitectures: [Architecture.ARM_64],
+      code: Code.fromAsset('./lambda/04-layer/build'),
+    });
+
+    // 05
+    new NodejsFunction(this, 'LayerDependent', {
       functionName: 'layer-dependent',
-      code: Code.fromAsset('./lambda/04-layer-dependent/build'),
+      code: Code.fromAsset('./lambda/05-layer-dependent/build'),
       handler: 'index.handler',
       architecture: Architecture.ARM_64,
       runtime: Runtime.NODEJS_24_X,
-      layers: [new LayerVersion(this, 'DependencyService', {
-        layerVersionName: 'dependency',
-        compatibleRuntimes: [Runtime.NODEJS_24_X],
-        compatibleArchitectures: [Architecture.ARM_64],
-        code: Code.fromAsset('./lambda/04-layer-dependency/build'),
-      })],
-    });    
+      layers: [layer],
+    });
   }
 }
